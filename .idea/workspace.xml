@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fcc3b7f6-beb1-4ecd-841c-370e2491187d" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ProperGame.v2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="452">
+              <caret line="408" lean-forward="true" selection-start-line="408" selection-end-line="408" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#668#2493#0" />
+                <element signature="e#2536#3042#0" />
+                <element signature="e#3082#4961#0" />
+                <element signature="e#5007#6446#0" />
+                <element signature="e#6488#6882#0" />
+                <element signature="e#6929#7408#0" />
+                <element signature="e#7448#7913#0" />
+                <element signature="e#7697#8007#0" />
+                <element signature="e#8036#8343#0" />
+                <element signature="e#8379#8642#0" />
+                <element signature="e#8700#8923#0" />
+                <element signature="e#8678#8750#0" />
+                <element signature="e#9104#9449#0" />
+                <element signature="e#9064#9319#0" />
+                <element signature="e#9053#9107#0" />
+                <element signature="e#10044#11925#0" />
+                <element signature="e#9423#9601#0" />
+                <element signature="e#10622#10931#0" />
+                <element signature="e#9723#9756#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>man</find>
+      <find>ship</find>
+      <find>clock</find>
+      <find>drawS</find>
+      <find>bgI</find>
+      <find>bg.gif</find>
+      <find>clo</find>
+      <find>allSprites</find>
+      <find>all_s</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Ulku.py" />
+        <option value="$PROJECT_DIR$/ulku2.py" />
+        <option value="$PROJECT_DIR$/Scramble.py" />
+        <option value="$PROJECT_DIR$/a.py" />
+        <option value="$PROJECT_DIR$/Test3.py" />
+        <option value="$PROJECT_DIR$/Test2.py" />
+        <option value="$PROJECT_DIR$/ProperGame.v1.py" />
+        <option value="$PROJECT_DIR$/ProperGame.py" />
+        <option value="$PROJECT_DIR$/Test.py" />
+        <option value="$PROJECT_DIR$/Game.py" />
+        <option value="$PROJECT_DIR$/ProperGame.v2.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-3" />
+    <option name="width" value="970" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ScrambleGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ScrambleGame" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DURSUN\PycharmProjects\ScrambleGame" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.ProperGame.v2">
+    <configuration name="ProperGame (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ScrambleGame" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ProperGame.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ProperGame" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ScrambleGame" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\DURSUN\PycharmProjects\ScrambleGame\Test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ProperGame.v2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ScrambleGame" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ProperGame.v2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Scramble" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ScrambleGame" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scramble.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ScrambleGame" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.ProperGame.v2" />
+        <item itemvalue="Python.Scramble" />
+        <item itemvalue="Python.Test" />
+        <item itemvalue="Python.ProperGame (1)" />
+        <item itemvalue="Python.ProperGame" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fcc3b7f6-beb1-4ecd-841c-370e2491187d" name="Default Changelist" comment="" />
+      <created>1557137264692</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1557137264692</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.13224447" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49947312" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49894625" visible="true" weight="0.2881907" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.33152762" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50105375" side_tool="true" weight="0.2881907" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32936078" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24945055" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13224447" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49947312" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49894625" visible="true" weight="0.2881907" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.33152762" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50105375" side_tool="true" visible="true" weight="0.2881907" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32936078" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24945055" />
+    </layout-to-restore>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://D:/DERS/OKUL/2019-Spring/Computer Games/code/ch07/mailPilot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="4" lean-forward="true" selection-end-line="231" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/DERS/OKUL/2019-Spring/Computer Games/code/ch08/cow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="148" column="33" lean-forward="true" selection-start-line="148" selection-start-column="33" selection-end-line="148" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/DERS/OKUL/2019-Spring/Computer Games/code/ch09/carParam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-850">
+          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding>
+            <element signature="e#71#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/DERS/OKUL/2019-Spring/Computer Games/code/ch09/twoPlanets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-697">
+          <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/DERS/OKUL/2019-Spring/Computer Games/code/ch09/turret.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/DERS/OKUL/2019-Spring/Computer Games/code/ch09/space.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/ntpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="74" column="4" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ulku.py" />
+    <entry file="file://$PROJECT_DIR$/ulku2.py" />
+    <entry file="file://$PROJECT_DIR$/a.py" />
+    <entry file="file://$PROJECT_DIR$/Test3.py" />
+    <entry file="file://$PROJECT_DIR$/Test2.py" />
+    <entry file="file://$PROJECT_DIR$/ProperGame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-206">
+          <caret line="274" lean-forward="true" selection-start-line="274" selection-end-line="274" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#541#850#0" />
+            <element signature="e#874#921#0" />
+            <element signature="e#966#1158#0" />
+            <element signature="e#1199#2840#0" />
+            <element signature="e#2880#4349#0" />
+            <element signature="e#4392#4765#0" />
+            <element signature="e#4811#5619#0" />
+            <element signature="e#5661#6027#0" />
+            <element signature="e#6074#6438#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
+          <folding>
+            <element signature="e#656#1123#0" />
+            <element signature="e#1164#2989#0" />
+            <element signature="e#3032#3538#0" />
+            <element signature="e#3563#3763#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scramble.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="246" column="23" lean-forward="true" selection-start-line="246" selection-start-column="23" selection-end-line="246" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#1189#2830#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="642">
+          <caret line="270" lean-forward="true" selection-start-line="270" selection-end-line="270" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#7487#7954#0" />
+            <element signature="e#8031#8505#0" />
+            <element signature="e#8674#9019#0" />
+            <element signature="e#9077#9285#0" />
+            <element signature="e#9321#9549#0" />
+            <element signature="e#9594#11345#0" />
+            <element signature="e#11375#14231#0" />
+            <element signature="e#11763#11828#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pygame/sprite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="462" selection-start-line="462" selection-end-line="462" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProperGame.v2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="408" lean-forward="true" selection-start-line="408" selection-end-line="408" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#668#2493#0" />
+            <element signature="e#2536#3042#0" />
+            <element signature="e#3082#4961#0" />
+            <element signature="e#5007#6446#0" />
+            <element signature="e#6488#6882#0" />
+            <element signature="e#6929#7408#0" />
+            <element signature="e#7448#7913#0" />
+            <element signature="e#7697#8007#0" />
+            <element signature="e#8036#8343#0" />
+            <element signature="e#8379#8642#0" />
+            <element signature="e#8700#8923#0" />
+            <element signature="e#8678#8750#0" />
+            <element signature="e#9104#9449#0" />
+            <element signature="e#9064#9319#0" />
+            <element signature="e#9053#9107#0" />
+            <element signature="e#10044#11925#0" />
+            <element signature="e#9423#9601#0" />
+            <element signature="e#10622#10931#0" />
+            <element signature="e#9723#9756#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

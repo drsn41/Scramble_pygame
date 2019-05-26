@@ -9,39 +9,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ProperGame.v2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="408" lean-forward="true" selection-start-line="408" selection-end-line="408" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-                <element signature="e#668#2493#0" />
-                <element signature="e#2536#3042#0" />
-                <element signature="e#3082#4961#0" />
-                <element signature="e#5007#6446#0" />
-                <element signature="e#6488#6882#0" />
-                <element signature="e#6929#7408#0" />
-                <element signature="e#7448#7913#0" />
-                <element signature="e#7697#8007#0" />
-                <element signature="e#8036#8343#0" />
-                <element signature="e#8379#8642#0" />
-                <element signature="e#8700#8923#0" />
-                <element signature="e#8678#8750#0" />
-                <element signature="e#9104#9449#0" />
-                <element signature="e#9064#9319#0" />
-                <element signature="e#9053#9107#0" />
-                <element signature="e#10044#11925#0" />
-                <element signature="e#9423#9601#0" />
-                <element signature="e#10622#10931#0" />
-                <element signature="e#9723#9756#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -62,6 +30,9 @@
       <find>allSprites</find>
       <find>all_s</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -105,7 +76,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -255,14 +228,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.13224447" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49947312" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49894625" visible="true" weight="0.2881907" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49894625" weight="0.2881907" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -423,29 +395,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProperGame.v2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="408" lean-forward="true" selection-start-line="408" selection-end-line="408" />
+        <state relative-caret-position="333">
+          <caret line="401" column="32" lean-forward="true" selection-start-line="401" selection-start-column="32" selection-end-line="401" selection-end-column="32" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#668#2493#0" />
-            <element signature="e#2536#3042#0" />
-            <element signature="e#3082#4961#0" />
-            <element signature="e#5007#6446#0" />
-            <element signature="e#6488#6882#0" />
-            <element signature="e#6929#7408#0" />
-            <element signature="e#7448#7913#0" />
-            <element signature="e#7697#8007#0" />
-            <element signature="e#8036#8343#0" />
-            <element signature="e#8379#8642#0" />
-            <element signature="e#8700#8923#0" />
-            <element signature="e#8678#8750#0" />
-            <element signature="e#9104#9449#0" />
-            <element signature="e#9064#9319#0" />
-            <element signature="e#9053#9107#0" />
-            <element signature="e#10044#11925#0" />
-            <element signature="e#9423#9601#0" />
-            <element signature="e#10622#10931#0" />
-            <element signature="e#9723#9756#0" />
           </folding>
         </state>
       </provider>

@@ -16,6 +16,7 @@ BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 BRIGHT_RED = (255,0,0)
 BRIGHT_GREEN = (0,255,0)
+HS_FILE = "highscore.txt"
 TITLE = "Scramble!"
 
 
@@ -146,26 +147,44 @@ class Bullet(pygame.sprite.Sprite):
             self.kill()
 
 
-class Mob(pygame.sprite.Sprite):
-    def __init__(self):
+class Fuel(pygame.sprite.Sprite):
+    def __init__(self, center):
         pygame.sprite.Sprite.__init__(self)
+        self.sndFuelUp = pygame.mixer.Sound(path.join(sndDir, 'sfx_shieldUp.ogg'))
+        self.image = pygame.image.load(path.join(imgDir, 'fuel.png'))
+        #self.image.set_colorkey((50, 132, 186))
+        self.rect = self.image.get_rect()
+        self.rect.center = center
+        self.speedx = 5
+
+    def update(self):
+        self.rect.x -= self.speedx
+        if self.rect.right < 0:
+            self.kill()
+
+
+class Mob(pygame.sprite.Sprite):
+    def __init__(self, level, ys, ye):
+        pygame.sprite.Sprite.__init__(self)
+        self.level = level
+        self.ys = ys
+        self.ye = ye
         self.meteorImgs = []
         self.meteorList = ['meteorBrown_big1.png', 'meteorBrown_big2.png', 'meteorBrown_big3.png',
-              'meteorBrown_med1.png', 'meteorBrown_med2.png', 'meteorBrown_small1.png',
-              'meteorBrown_small2.png','meteorBrown_tiny1.png']
+                           'meteorBrown_med1.png', 'meteorBrown_med2.png', 'meteorBrown_small1.png',
+                           'meteorBrown_small2.png', 'meteorBrown_tiny1.png']
         for met in self.meteorList:
             self.meteorImgs.append(pygame.image.load(path.join(imgDir, met)).convert())
         self.imageOrig = random.choice(self.meteorImgs)
         self.imageOrig.set_colorkey(BLACK)
-        self.image = self.imageOrig.copy()
+        self.image = pygame.transform.scale(self.imageOrig, (17, 17))
         self.rect = self.image.get_rect()
         self.radius = int(self.rect.width * .85 /2)
-        self.rect.x = random.randrange(WIDTH, WIDTH+100)
-        self.rect.y = random.randrange(0,HEIGHT - self.rect.height)
-        self.speedx = random.randrange(1,8)
-        self.speedy = random.randrange(-3,3)
+        self.rect.x = random.randrange(WIDTH, WIDTH+320)
+        self.rect.centery = random.randrange(self.ys, self.ye)
+        self.speedx = level * 6
         self.rot = 0
-        self.rotSpeed = random.randrange(-8,8)
+        self.rotSpeed = random.randrange(3, 8)
         self.lastUpdateTime = pygame.time.get_ticks()
 
     def rotate(self):
@@ -181,12 +200,12 @@ class Mob(pygame.sprite.Sprite):
 
     def update(self):
         self.rotate()
-        self.rect.y += self.speedy
+        #self.rect.y += self.speedy
         self.rect.x -= self.speedx
         if self.rect.right < 0 or self.rect.bottom > HEIGHT+10 or self.rect.top < 0:
-            self.rect.x = random.randrange(WIDTH, WIDTH + 40)
-            self.rect.y = random.randrange(0, HEIGHT - self.rect.height)
-            self.speedx = random.randrange(1, 8)
+            self.rect.x = random.randrange(WIDTH, WIDTH + 320)
+            self.rect.centery = random.randrange(self.ys, self.ye)
+            self.speedx = self.level * 6
 
 
 class Explosion(pygame.sprite.Sprite):
@@ -244,20 +263,26 @@ class Space(pygame.sprite.Sprite):
 
 
 class Box(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, max_length, base_cor):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((40, random.randrange(10, HEIGHT/2)))
+        self.image = pygame.Surface((40, random.randrange(10, max_length)))
         self.image.fill(YELLOW)
         self.rect = self.image.get_rect()
         self.rect.left = WIDTH
-        self.rect.bottom = 454
+
+        if base_cor == 35:
+            self.rect.top = base_cor
+        else:
+            self.rect.bottom = base_cor
+
         self.speed_x = 0
+        self.draw_time = 0
 
     def update(self):
         self.speed_x = 0
-        self.speed_x -= 10
+        self.speed_x -= 6
         self.rect.x += self.speed_x
-        if self.rect.right < 0:
+        if self.rect.right <= 0:
             self.kill()
 
 
@@ -271,7 +296,9 @@ class Game:
         self.clock = pygame.time.Clock()
         self.font_name = pygame.font.match_font('arial')
         self.running = True
+        self.level = 1
         self.all_sprites = pygame.sprite.LayeredUpdates()
+        self.load_data()
 
     def new(self):
         # start a new game
@@ -280,21 +307,33 @@ class Game:
         self.boxes = pygame.sprite.Group()
         self.bullets = pygame.sprite.Group()
         self.mobs = pygame.sprite.Group()
+        self.fuels = pygame.sprite.Group()
         self.player = Ship(self.all_sprites, self.bullets)
         self.space = Space()
         self.all_sprites.add(self.space)
         self.all_sprites.add(self.player)
         self.run()
 
-    def create_box(self):
-        box = Box()
+    def load_data(self):
+        # load high score
+        self.dir = path.dirname(__file__)
+        with open(path.join(self.dir, HS_FILE), 'r') as f:
+            try:
+                self.highscore = int(f.read())
+            except:
+                self.highscore = 0
+
+    def create_box(self, max_length, base_cor):
+        box = Box(max_length, base_cor)
         if not self.boxes:
             self.boxes.add(box)
             self.all_sprites.add(box)
         else:
             box.rect.left = self.boxes.sprites()[-1].rect.right
             self.boxes.add(box)
-            self.all_sprites.add(self.boxes)
+            self.all_sprites.add(box)
+        if len(self.boxes) > 40:
+            self.boxes.sprites()[-1].kill()
 
     def draw_text(self, text, size, color, x, y):
         font = pygame.font.Font(self.font_name, size)
@@ -303,8 +342,8 @@ class Game:
         text_rect.midtop = (x, y)
         self.screen.blit(text_surface, text_rect)
 
-    def create_mob(self):
-        mob = Mob()
+    def create_mob(self, level, ys, ye):
+        mob = Mob(level, ys, ye)
         self.all_sprites.add(mob)
         self.mobs.add(mob)
 
@@ -321,13 +360,13 @@ class Game:
 
     def run(self):
         # Game Loop
-        time_start = pygame.time.get_ticks()
         self.playing = True
         for i in range(8):
-            self.create_mob()
+            self.create_mob(self.level, ys=0, ye=270)
+        draw_time = pygame.time.get_ticks()
         while self.playing:
             self.clock.tick(FPS)
-            self.events(time_start)
+            self.events()
             self.update()
             self.draw()
 
@@ -335,7 +374,7 @@ class Game:
         # Game Loop - Update
         self.all_sprites.update()
 
-    def events(self, time_start):
+    def events(self):
         # Game Loop - events
         for event in pygame.event.get():
             # check for closing window
@@ -345,16 +384,48 @@ class Game:
                 self.running = False
 
         time_now = pygame.time.get_ticks()
-        if time_now - time_start > 120:
-            self.create_box()
-            time_start = time_now
+
+        if self.score > 4000:
+            self.level = 2
+
+        if self.score > 8000:
+            self.level = 3
+
+        if self.level == 1:
+            self.create_box(180, 454)
+
+        if self.level == 2:
+            self.player.vel = 14
+            if random.random() > 0.90:
+                self.create_box(160, 35)
+            else:
+                self.create_box(150, 454)
+        if self.level == 3:
+            self.player.vel = 16
+            if random.random() > 0.50:
+                self.create_box(160, 35)
+            else:
+                self.create_box(180, 454)
 
         if time_now - self.player.lastUpdateTime > 300:
-            self.player.fuel -= 1
+            self.player.fuel -= self.level
             self.player.lastUpdateTime = time_now
 
         if self.player.fuel <= 0:
             self.playing = False
+
+        # check player hit a powerup
+        hits = pygame.sprite.spritecollide(self.player,self.fuels, True)
+        for hit in hits:
+            hit.sndFuelUp.play()
+            if self.level == 1:
+                self.player.fuel += random.randrange(10, 20)
+            if self.level == 2:
+                self.player.fuel += random.randrange(20, 40)
+            if self.level == 3:
+                self.player.fuel += random.randrange(30, 60)
+            if self.player.fuel >= 100:
+                self.player.fuel = 100
 
         # check mob hit player
         hits = pygame.sprite.spritecollide(self.player, self.boxes, False, pygame.sprite.collide_circle)
@@ -367,7 +438,6 @@ class Game:
             if self.lives <= 0:
                 self.playing = False
             self.player = Ship(self.all_sprites,self.bullets)
-            self.player.rect.y = 30
             self.all_sprites.add(self.player)
 
         # check bullet hit a mob
@@ -375,9 +445,26 @@ class Game:
         for hit in hits:
             exp = Explosion(hit.rect.center, 'sm')
             exp.sndExplosion.play()
-            self.score += 100 - hit.radius
+            self.score += 100*self.level - hit.radius
             self.all_sprites.add(exp)
-            self.create_mob()
+            if random.random() > (0.97 - (self.level*0.07)):
+                fuel = Fuel(hit.rect.center)
+                self.all_sprites.add(fuel)
+                self.fuels.add(fuel)
+            if self.level == 1:
+                self.create_mob(self.level, ys=0, ye=270)
+            if self.level == 2:
+                self.create_mob(self.level, ys=155, ye=300)
+            if self.level == 3:
+                self.create_mob(self.level, ys=155, ye=300)
+
+        # check bullet hit a box
+        hits = pygame.sprite.groupcollide(self.bullets, self.boxes, True, False)
+        for hit in hits:
+            exp = Explosion(hit.rect.center, 'sm')
+            exp.sndExplosion.play()
+            self.all_sprites.add(exp)
+
         # check mob hit player
         hits = pygame.sprite.spritecollide(self.player, self.mobs, True, pygame.sprite.collide_circle)
         for hit in hits:
@@ -392,8 +479,9 @@ class Game:
         # Game Loop - draw
         self.screen.fill(BLACK)
         self.all_sprites.draw(self.screen)
-        self.draw_text("Points:"+str(self.score), 22, WHITE, WIDTH / 2, 15)
-        self.draw_text("Ships: "+str(self.lives), 22, WHITE, WIDTH / 2 - 100, 15)
+        self.draw_text("Points:"+str(self.score), 22, WHITE, WIDTH / 2, 10)
+        self.draw_text("Ships: "+str(self.lives), 22, WHITE, WIDTH / 2 - 100, 10)
+        self.draw_text("Level: " + str(self.level), 22, WHITE, WIDTH / 2 - 200, 10)
         self.draw_text("FUEL", 22, WHITE, 95, 454)
         self.draw_live_bar(self.screen, 120, 456, self.player.fuel)
         # *after* drawing everything, flip the display
@@ -407,12 +495,13 @@ class Game:
 
         self.draw_text(TITLE, 48, WHITE, WIDTH / 2, 30)
         self.draw_text("Arrows to move, Space to Fire", 22, WHITE, WIDTH / 2, 80)
+        self.draw_text("High Score: " + str(self.highscore), 22, WHITE, WIDTH / 2, 100)
         self.draw_text("Choose a level to play", 22, WHITE, WIDTH / 2, 120)
         self.draw_text("or Play Arcade", 22, WHITE, WIDTH / 2, HEIGHT * 3 / 4)
         self.draw_text("Level 1", 22, WHITE, WIDTH / 2, HEIGHT * 3 / 7)
         self.draw_text("Level 2", 22, WHITE, WIDTH / 2, HEIGHT * 3 / 6)
         self.draw_text("Level 3", 22, WHITE, WIDTH / 2, HEIGHT * 3 / 5)
-        #self.draw_text("High Score: " + str(self.highscore), 22, WHITE, WIDTH / 2, 15)
+
 
         self.btn_play = Button()
         self.btn_play.bgColor = (0, 255, 0)
@@ -438,7 +527,7 @@ class Game:
         self.wait_for_key(self.btn_play, self.btn_quit, self.screen_sprites)
         pygame.mixer.music.fadeout(500)
 
-    def wait_for_key(self, btn_play, btn_quit, screen_sprites ):
+    def wait_for_key(self, btn_play, btn_quit, screen_sprites):
         waiting = True
         while waiting:
             pygame.time.delay(100)
@@ -465,10 +554,20 @@ class Game:
         pygame.mixer.music.load(path.join(sndDir, 'Yippee.ogg'))
         pygame.mixer.music.play(loops=-1)
         self.btn_play.text = "Restart"
+        self.level = 1
         self.screen.fill(BLACK)
         self.draw_text("GAME OVER", 48, WHITE, WIDTH / 2, HEIGHT / 4)
-        self.draw_text("Score: " + str(self.score), 22, WHITE, WIDTH / 2, HEIGHT / 2)
-        self.draw_text("Press a key to play again", 22, WHITE, WIDTH / 2, HEIGHT * 3 / 4)
+
+        self.draw_text("Try Again", 22, WHITE, WIDTH / 2, HEIGHT * 3 / 4)
+
+        if self.score > self.highscore:
+            self.highscore = self.score
+            self.draw_text("NEW HIGH SCORE!", 22, WHITE, WIDTH / 2, HEIGHT / 2 + 40)
+            self.draw_text(str(self.score), 30, WHITE, WIDTH / 2, HEIGHT / 2)
+            with open(path.join(self.dir, HS_FILE), 'w') as f:
+                f.write(str(self.score))
+        else:
+            self.draw_text("Score: " + str(self.score), 22, WHITE, WIDTH / 2, HEIGHT / 2)
 
         self.screen_sprites.update()
         self.screen_sprites.draw(self.screen)

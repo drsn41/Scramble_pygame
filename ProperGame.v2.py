@@ -10,11 +10,59 @@ FPS = 30
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
-RED = (255, 0, 0)
-GREEN = (0, 255, 0)
+RED = (200, 0, 0)
+GREEN = (0, 200, 0)
 BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
+BRIGHT_RED = (255,0,0)
+BRIGHT_GREEN = (0,255,0)
 TITLE = "Scramble!"
+
+
+class Label(pygame.sprite.Sprite):
+    def __init__(self, fontName="freesansbold.ttf"):
+        pygame.sprite.Sprite.__init__(self)
+        self.font = pygame.font.Font(fontName, 20)
+        self.text = ""
+        self.fgColor = ((0x00, 0x00, 0x00))
+        self.bgColor = ((0xFF, 0xFF, 0xFF))
+        self.center = (100, 100)
+        self.size = (150, 30)
+
+    def update(self):
+        self.image = pygame.Surface(self.size)
+        self.image.fill(self.bgColor)
+        fontSurface = self.font.render(self.text, True, self.fgColor, self.bgColor)
+        # center the text
+        xPos = (self.image.get_width() - fontSurface.get_width()) / 2
+
+        self.image.blit(fontSurface, (xPos, 0))
+        self.rect = self.image.get_rect()
+        self.rect.center = self.center
+
+
+class Button(Label):
+    def __init__(self):
+        Label.__init__(self)
+        self.active = False
+        self.clicked = False
+        self.bgColor = (0xCC, 0xCC, 0xCC)
+
+    def update(self):
+        Label.update(self)
+
+        self.clicked = False
+        # check for mouse input
+        if pygame.mouse.get_pressed() == (1, 0, 0):
+            if self.rect.collidepoint(pygame.mouse.get_pos()):
+                self.active = True
+
+        # check for mouse release
+        if self.active == True:
+            if pygame.mouse.get_pressed() == (0, 0, 0):
+                self.active = False
+                if self.rect.collidepoint(pygame.mouse.get_pos()):
+                    self.clicked = True
 
 
 class Ship(pygame.sprite.Sprite):
@@ -195,23 +243,6 @@ class Space(pygame.sprite.Sprite):
         self.rect.right = 1920
 
 
-class Scoreboard(pygame.sprite.Sprite):
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
-        self.lives = 5
-        self.level = 1
-        self.score = 0
-        self.text = ""
-        self.image = ""
-        self.rect = ""
-        self.font = pygame.font.SysFont("None", 50)
-
-    def update(self):
-        self.text = "Ships: %d, Score: %d, Level: %d" % (self.lives, self.score, self.level)
-        self.image = self.font.render(self.text, 1, (255, 255, 0))
-        self.rect = self.image.get_rect()
-
-
 class Box(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -240,12 +271,12 @@ class Game:
         self.clock = pygame.time.Clock()
         self.font_name = pygame.font.match_font('arial')
         self.running = True
+        self.all_sprites = pygame.sprite.LayeredUpdates()
 
     def new(self):
         # start a new game
         self.score = 0
         self.lives = 5
-        self.all_sprites = pygame.sprite.LayeredUpdates()
         self.boxes = pygame.sprite.Group()
         self.bullets = pygame.sprite.Group()
         self.mobs = pygame.sprite.Group()
@@ -373,25 +404,59 @@ class Game:
         pygame.mixer.music.load(path.join(sndDir, 'Yippee.ogg'))
         pygame.mixer.music.play(loops=-1)
         self.screen.fill(BLACK)
-        self.draw_text(TITLE, 48, WHITE, WIDTH / 2, HEIGHT / 4)
-        self.draw_text("Arrows to move, Space to Fire", 22, WHITE, WIDTH / 2, HEIGHT / 2)
-        self.draw_text("Choose a level to play", 22, WHITE, WIDTH / 2, HEIGHT * 3 / 4)
+
+        self.draw_text(TITLE, 48, WHITE, WIDTH / 2, 30)
+        self.draw_text("Arrows to move, Space to Fire", 22, WHITE, WIDTH / 2, 80)
+        self.draw_text("Choose a level to play", 22, WHITE, WIDTH / 2, 120)
+        self.draw_text("or Play Arcade", 22, WHITE, WIDTH / 2, HEIGHT * 3 / 4)
+        self.draw_text("Level 1", 22, WHITE, WIDTH / 2, HEIGHT * 3 / 7)
+        self.draw_text("Level 2", 22, WHITE, WIDTH / 2, HEIGHT * 3 / 6)
+        self.draw_text("Level 3", 22, WHITE, WIDTH / 2, HEIGHT * 3 / 5)
         #self.draw_text("High Score: " + str(self.highscore), 22, WHITE, WIDTH / 2, 15)
+
+        self.btn_play = Button()
+        self.btn_play.bgColor = (0, 255, 0)
+        self.btn_play.font = pygame.font.Font("goodfoot.ttf", 30)
+        self.btn_play.center = (200, 420)
+        self.btn_play.size = (100, 50)
+        self.btn_play.text = "Play"
+
+        self.btn_quit = Button()
+        self.btn_quit.bgColor = (255, 0, 0)
+        self.btn_quit.font = pygame.font.Font("goodfoot.ttf", 30)
+        self.btn_quit.center = (420, 420)
+        self.btn_quit.size = (100, 50)
+        self.btn_quit.text = "Quit"
+
+        self.screen_sprites = pygame.sprite.Group()
+        self.screen_sprites.add(self.btn_play)
+        self.screen_sprites.add(self.btn_quit)
+        self.screen_sprites.update()
+        self.screen_sprites.draw(self.screen)
+
         pygame.display.flip()
-        self.wait_for_key()
+        self.wait_for_key(self.btn_play, self.btn_quit, self.screen_sprites)
         pygame.mixer.music.fadeout(500)
 
-    def wait_for_key(self):
+    def wait_for_key(self, btn_play, btn_quit, screen_sprites ):
         waiting = True
-        pygame.time.delay(300)
         while waiting:
+            pygame.time.delay(100)
             self.clock.tick(FPS)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    waiting = False
+                    self.playing = False
                     self.running = False
-                if event.type == pygame.KEYUP:
                     waiting = False
+            if btn_play.clicked:
+                self.all_sprites.empty()
+                self.new()
+                waiting = False
+            if btn_quit.clicked:
+                self.playing = False
+                self.running = False
+                waiting = False
+            screen_sprites.update()
 
     def show_go_screen(self):
         # game over/continue
@@ -399,12 +464,17 @@ class Game:
             return
         pygame.mixer.music.load(path.join(sndDir, 'Yippee.ogg'))
         pygame.mixer.music.play(loops=-1)
+        self.btn_play.text = "Restart"
         self.screen.fill(BLACK)
         self.draw_text("GAME OVER", 48, WHITE, WIDTH / 2, HEIGHT / 4)
         self.draw_text("Score: " + str(self.score), 22, WHITE, WIDTH / 2, HEIGHT / 2)
         self.draw_text("Press a key to play again", 22, WHITE, WIDTH / 2, HEIGHT * 3 / 4)
+
+        self.screen_sprites.update()
+        self.screen_sprites.draw(self.screen)
+
         pygame.display.flip()
-        self.wait_for_key()
+        self.wait_for_key(self.btn_play, self.btn_quit, self.screen_sprites)
         pygame.mixer.music.fadeout(500)
 
 
@@ -412,7 +482,6 @@ def main():
     g = Game()
     g.show_start_screen()
     while g.running:
-        g.new()
         g.show_go_screen()
 
     pygame.quit()
